@@ -26,6 +26,7 @@ class Quiz {
         this.mammalText.hide();
         this.sudmitbutton.hide();
     }
+   
     display(){
         showisland = false;
         this.dietRadio.position(displayWidth/2 - 50, 80);
@@ -52,6 +53,7 @@ class Quiz {
                 choosecreatureform = new chooseCreatureForm();
                 this.hide();
                 choosecreatureform.display();
+                showisland = true;
             }else{
                 console.log("Incorrect Answer"); 
             }

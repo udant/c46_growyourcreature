@@ -60,10 +60,10 @@ function draw() {
    //background("black");
     loginform.display();  
     // coming from choose creature.js on success condition.
- //
-
-
  
+
+
+ //quiz.display();
  //
  /*var radioInput = document.createElement('input');
  radioInput.setAttribute('type', 'radio');
@@ -87,9 +87,11 @@ function draw() {
       plants = createSprite(900,60,130,115);
       plants.addImage("plants",plants_img);
       plants.setCollider("rectangle",0,0,130,115);
+      console.log("Showing all sprites");
+      
      
 
-      if(animal.mammal === "yes"){
+      if(animal.mammal === "yes"){ 
           cave = createSprite(1000,475,200,200  );
           cave.addImage("caves",cave_img); 
           
@@ -101,6 +103,7 @@ function draw() {
           mammal_sprite.depth = plants.depth;
           mammal_sprite.depth = fish.depth;
           mammal_sprite.depth = meat.depth;
+          
           //console.log("animal.mammal"+animal.mammal);
       }else if (animal.mammal === "no") {
           nest = createSprite(1000,500,50,50);
@@ -111,10 +114,12 @@ function draw() {
           egg.depth = plants.depth;
           egg.depth = fish.depth;
           egg.depth = meat.depth;
+
         //  console.log("animal.mammal"+animal.mammal);
          
           //egg.depth = snowIsland.depth;
       }
+      show();
     }
 
 
@@ -122,34 +127,61 @@ function draw() {
         showisland = false;
         console.log("line before hide");
         snowIsland.visible=false;
+        food_selection_flag=false;
+        habitat_selection_flag=false;
         console.log(" Hide Value: " + snowIsland.visible) ;
         //quiz = new Quiz();
-        console.log("show quiz");
+       // console.log("show quiz");
+        egg.x = 100;
+        egg.y = 100;
         quiz.display();
-       egg.x = 100;
-       egg.y = 100;
+      
        hide();
       }
     
   drawSprites();
 }
 function hide() {
-  snowIsland.hide();
-  riverIsland.hide();
-  forestIsland.hide();
-  meat.hide();
-  fish.hide();
-  plants.hide();
-  nest.hide();
-  egg.hide();
-  mammal_img.hide(); 
-  mammal_sprite.hide();
+  snowIsland.visible=false;
+  riverIsland.visible=false;
+  forestIsland.visible=false;
+  meat.visible=false;
+  fish.visible=false;
+  plants.visible=false;
+ 
+ 
+  if(animal.mammal === "yes"){ 
+      mammal_img.visible=false;
+      mammal_sprite.visible=false;
+      cave.visible=false;      
+            //console.log("animal.mammal"+animal.mammal);
+  }else if (animal.mammal === "no") {
+    nest.visible=false;
+    egg.visible=false;
+  }
+}
+function show(){
+  snowIsland.visible=true;
+  riverIsland.visible=true;
+  forestIsland.visible=true;
+  meat.visible=true;
+  fish.visible=true;
+  plants.visible=true;
+  if(animal.mammal === "yes"){ 
+    mammal_img.visible=true;
+    mammal_sprite.visible=true;
+    cave.visible=true;      
+          //console.log("animal.mammal"+animal.mammal);
+}else if (animal.mammal === "no") {
+  nest.visible=true;
+  egg.visible=true;
+}
 }
 function mouseDragged() {
   background(islandbg);
 
 if (animal.mammal === "no"){
-  
+ // show();
   var forestIsaland_Flag=false;
   var snowIsland_Flag= false;
   var riverIsaland_Flag= false;
@@ -253,7 +285,7 @@ if (animal.mammal === "no"){
   }
 }
  else if(animal.mammal === "yes"){
-  
+       // show();
         mammal_sprite.x = mouseX;
         mammal_sprite.y = mouseY;
         var forestIsaland_Flag=false;
