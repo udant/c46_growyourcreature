@@ -39,25 +39,36 @@ function setup() {
   database = firebase.database();
   creatures = new Creatures();
   loginform = new LoginForm();
+  quiz = new Quiz();
   adminform = new AdminForm();
   Creatures.getUserInfo();
   //maze=new Maze();
   //animal = new Creatures("Woolly_Mammoth","creature area","herbivore","iceage","plants","snow","land","creature height","creature weight","no");
   //showisland = true;
-  //animal = new Creatures("Trex","creature area","carnivore","iceage","meat","forest","land","creature height","creature weight","no");
+  animal = new Creatures("Trex","creature area","carnivore","cretacious","meat","forest","land","creature height","creature weight","no");
  //animal = new Creatures("Trex","creature area","herbivore","iceage","plants","river","land","creature height","creature weight","yes");
-  animal = new Creatures("Mosasaurus","creature area","carnivore","iceage","fish","river","land","creature height","creature weight","no");
+  //animal = new Creatures("Mosasaurus","creature area","carnivore","iceage","fish","river","land","creature height","creature weight","no");
   //animal = new Creatures("Smilodon","creature area","carnivore","iceage","meat","snow","land","creature height","creature weight","yes");
  //animal = new Creatures("Trex","creature area","herbivore","iceage","plants","forest","land","creature height","creature weight","no");
  //showisland=true;   
+ 
 }
 
 function draw() {
-  background(loginbg); 
+  //background(loginbg); 
+  background("white");
    //background("black");
     loginform.display();  
     // coming from choose creature.js on success condition.
  //
+
+
+ 
+ //
+ /*var radioInput = document.createElement('input');
+ radioInput.setAttribute('type', 'radio');
+ radioInput.setAttribute('name', name);*/
+
     if (showisland === true ) {
       background(islandbg);
       snowIsland = createSprite(200,300,180,180);
@@ -112,28 +123,41 @@ function draw() {
         console.log("line before hide");
         snowIsland.visible=false;
         console.log(" Hide Value: " + snowIsland.visible) ;
-        quiz = new Quiz();
+        //quiz = new Quiz();
         console.log("show quiz");
         quiz.display();
+       egg.x = 100;
+       egg.y = 100;
+       hide();
       }
     
   drawSprites();
 }
-
+function hide() {
+  snowIsland.hide();
+  riverIsland.hide();
+  forestIsland.hide();
+  meat.hide();
+  fish.hide();
+  plants.hide();
+  nest.hide();
+  egg.hide();
+  mammal_img.hide(); 
+  mammal_sprite.hide();
+}
 function mouseDragged() {
   background(islandbg);
 
 if (animal.mammal === "no"){
-
-  egg.x = mouseX;
-  egg.y = mouseY;
+  
   var forestIsaland_Flag=false;
   var snowIsland_Flag= false;
   var riverIsaland_Flag= false;
   var meat_Flag=false;
   var fish_Flag= false;
   var plant_Flag= false;
-
+  egg.x = mouseX;
+  egg.y = mouseY;
   if (isTouching(fish,egg)) {
       fish_Flag=true;
       
@@ -229,6 +253,7 @@ if (animal.mammal === "no"){
   }
 }
  else if(animal.mammal === "yes"){
+  
         mammal_sprite.x = mouseX;
         mammal_sprite.y = mouseY;
         var forestIsaland_Flag=false;

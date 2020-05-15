@@ -1,57 +1,61 @@
-class Quiz extends Creatures{
+class Quiz {
     constructor(){
-        super();
-        this.animaltype = createInput('iceage');
-        this.namebox = createInput('creature name');
-        this.areabox = createInput('creature area');
-        this.erabox = createInput('triassic/jurassic/cretacious/iceage');
-        this.dietbox = createInput('herbivore/carnivore/omnivore');
-        this.foodbox = createInput('meat/fish/plants');
-        this.weightbox = createInput('creature weight');
-        this.habitatbox = createInput('forest/snow/river');
-        this.heightbox = createInput('creature height');
-        this.mammalbox = createInput('mammal yes/no');
-        this.sudmitbutton = createButton('check');
+        this.dietRadio = createRadio();
+        this.dietText = createP("Diet");
+        this.dietRadio.option('herbivore', 'herbivore');
+        this.dietRadio.option('carnivore', 'carnivore');
+        this.dietRadio.option('omnivore', 'omnivore');
+        this.eraRadio = createRadio();
+        this.eraText = createP("Era");
+        this.eraRadio.option('triassic', 'triassic');
+        this.eraRadio.option('jurassic', 'jurassic');
+        this.eraRadio.option('cretacious', 'cretacious');
+        this.eraRadio.option('iceage', 'iceage');
+        this.mammalRadio = createRadio();
+        this.mammalText = createP("Is it Mammal ?");
+        this.mammalRadio.option('yes', 'yes');
+        this.mammalRadio.option('no', 'no');
+        this.sudmitbutton = createButton('Submit Quiz');
+    }
+    hide(){
+        this.dietText.hide();
+        this.dietRadio.hide();
+        this.eraRadio.hide();
+        this.eraText.hide();
+        this.mammalRadio.hide();
+        this.mammalText.hide();
+        this.sudmitbutton.hide();
     }
     display(){
-        var radioInput = document.createElement('input');
-        radioInput.setAttribute('type', 'radio'); 
-        radioInput.setAttribute('name', name);
         showisland = false;
-        this.animaltype.position(displayWidth/2 - 50,50);
-        this.namebox.position(displayWidth/2 - 50, 80);
-        this.areabox.position(displayWidth/2 - 50, 110);
-        this.erabox.position(displayWidth/2 - 50, 140);
-        this.dietbox.position(displayWidth/2 - 50, 170);
-        this.foodbox.position(displayWidth/2 - 50, 200);
-        this.weightbox.position(displayWidth/2 - 50, 230);
-        this.habitatbox.position(displayWidth/2 - 50, 260);
-        this.heightbox.position(displayWidth/2 - 50, 320);
-        this.mammalbox.position(displayWidth/2 - 50, 350);
+        this.dietRadio.position(displayWidth/2 - 50, 80);
+        this.eraRadio.position(displayWidth/2 - 50, 100);
+        this.mammalRadio.position(displayWidth/2 - 50, 120);
+        var mammal =  this.mammalRadio.value();
+        var diet =  this.dietRadio.value();
+        var era =  this.eraRadio.value();
+        this.dietText.position(displayWidth/2 - 200, 63);
+        this.eraText.position(displayWidth/2 - 200, 83);
+        this.mammalText.position(displayWidth/2 - 200, 103);
         this.sudmitbutton.position(displayWidth/2 - 50, 380);
         this.sudmitbutton.mousePressed(()=>{
-           
-            var animaltype=this.animaltype.value();
-            var area = this.areabox.value();
-            var diet = this.dietbox.value();
-            var era = this.erabox.value();
-            var food = this.foodbox.value();
-            var habitat = this.habitatbox.value();
-            var height = this.heightbox.value();
-            var weight = this.weightbox.value();
-            var name = this.namebox.value();
-            var mammals = this.mammalbox.value();
-            Creatures.getcreaturelist(animaltype+"List");
-            var count = Object.keys(creaturelistdb);   
+        console.log(animal.era === era);    
+        console.log(animal.diet === diet); 
+        console.log(animal.mammal === mammal); 
+        console.log(animal.diet); 
+        console.log(diet); 
+        animal.era = era;
+        animal.diet = diet;
+        animal.mammal = mammal
+            if ((animal.era === era) && (animal.diet === diet) && (animal.mammal === mammal)) {
+                console.log("Quiz Completed Correctly");
+                choosecreatureform = new chooseCreatureForm();
+                this.hide();
+                choosecreatureform.display();
+            }else{
+                console.log("Incorrect Answer"); 
+            }
             
-              /* if ((area === animal.area) && (diet === animal.diet) && (era === animal.era) && (food === animal.food) && (habitat === animal.habitat) && (height === animal.height) && (weight  === animal.weight)) {
-                   
-               }*/
-               console.log("Quiz Cmpleted ");
-               maze.display();
-               
-                 
-
     });
 
 

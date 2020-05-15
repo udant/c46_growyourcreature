@@ -62,10 +62,9 @@ class chooseCreatureForm {
      //Either dino button or iceage button is pressed from screen : 
      //below code runs when dinobutton is clicked twice
       this.dinobutton.mousePressed(()=>{
+        showisland=true;
         this.iceagebutton.hide();
        // console.log("dinobutton pressed");  
-       
-       
         Creatures.readdatalist("dino"); //to get the list of creatures from database which starts with name 'dino'
         console.log("creaturelistdb "+creaturelistdb);
         //this.hide();
@@ -76,17 +75,18 @@ class chooseCreatureForm {
             var k= count[i];
             var name_1 =   creaturelistdb[k].name;  
             //var name_1 =   creaturelistdb[k].name;     
-            var buttonname= "dinobutton"+i;  //For each dino, button name is created
-
+            var buttonname = "dinobutton"+i;  //For each dino, button name is created
           //  button.setAttribute("name","dinobutton"+i);
             ////button.setAttribute("value","dinobutton"+i);
            //// button.setAttribute("onclick","dinobutton"+i);
              
             buttonname = createButton(name_1); //Button is created 
-            buttonname.position(displayWidth/2 - 50 , 400 + 30*i);//button's position is set
-            
+            buttonname = createImg("images/baby_"+name_1+".jpg");
+            buttonname.position(displayWidth/2 - 50 , 400 + 30*i+(i*25));//button's position is set
+            //buttonname.src = "images/iceage_button.jpg";
+            console.log("buttonname displayed");
+  
             this.choose.hide(); 
-
             console.log("buttonname "+buttonname);
               this.title.hide();
               console.log("Record:" + name_1);
@@ -101,7 +101,15 @@ class chooseCreatureForm {
                 infoForm = new  InfoForm();
                 infoForm.display();
                 
-           
+              /*  buttonname = document.getElementsByClassName("button");
+
+                for (var b = 0; b < buttonname.length; b++) {
+                  buttonname[b].src = "images/iceagebutton.jpg";
+                  buttonname.display(); 
+                  console.log("buttonname displayed");
+               }*/
+               
+                // bu
               /*this.buttonname.mousePressed(()=>{
               //animal = new Creatures("Woolly_Mammoth","creature area","herbivore","iceage","plants","snow","land","creature height","creature weight","yes");
               console.log("Record details" + creaturelistdb[k].area + " "+ creaturelistdb[k].habitat );
