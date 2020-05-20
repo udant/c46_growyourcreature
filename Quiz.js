@@ -5,6 +5,8 @@ class Quiz {
         this.dietRadio.option('herbivore', 'herbivore');
         this.dietRadio.option('carnivore', 'carnivore');
         this.dietRadio.option('omnivore', 'omnivore');
+
+        
         this.eraRadio = createRadio();
         this.eraText = createP("Era");
         this.eraRadio.option('triassic', 'triassic');
@@ -26,37 +28,54 @@ class Quiz {
         this.mammalText.hide();
         this.sudmitbutton.hide();
     }
-   
+   show(){
+    this.dietText.hide();
+    this.dietRadio.hide();
+    this.eraRadio.hide();
+    this.eraText.hide();
+    this.mammalRadio.hide();
+    this.mammalText.hide();
+    this.sudmitbutton.hide();
+
+   }
     display(){
+        console.log("line display : Quiz ");
+       
+
         showisland = false;
+        this.dietRadio.visible = true;
+        this.dietText.visible = true;
+        this.eraRadio.visible = true;
         this.dietRadio.position(displayWidth/2 - 50, 80);
         this.eraRadio.position(displayWidth/2 - 50, 100);
         this.mammalRadio.position(displayWidth/2 - 50, 120);
-        var mammal =  this.mammalRadio.value();
-        var diet =  this.dietRadio.value();
-        var era =  this.eraRadio.value();
+        this.dietRadio.checked=false;
+        this.mammalRadio.checked=false;
+        this.eraRadio.checked=false;
+        console.log("mammal Val:"+ this.mammalRadio.value());
+        console.log("Era Val:"+ this.eraRadio.value());
+        console.log("diet Val:"+ this.dietRadio.value());
         this.dietText.position(displayWidth/2 - 200, 63);
         this.eraText.position(displayWidth/2 - 200, 83);
         this.mammalText.position(displayWidth/2 - 200, 103);
         this.sudmitbutton.position(displayWidth/2 - 50, 380);
+
+
+
         this.sudmitbutton.mousePressed(()=>{
-        console.log(animal.era === era);    
-        console.log(animal.diet === diet); 
-        console.log(animal.mammal === mammal); 
-        console.log(animal.diet); 
-        console.log(diet); 
-        animal.era = era;
-        animal.diet = diet;
-        animal.mammal = mammal
-            if ((animal.era === era) && (animal.diet === diet) && (animal.mammal === mammal)) {
-                console.log("Quiz Completed Correctly");
-                choosecreatureform = new chooseCreatureForm();
-                this.hide();
-                choosecreatureform.display();
-                showisland = true;
-            }else{
-                console.log("Incorrect Answer"); 
-            }
+
+        var mammal =  this.mammalRadio.value();
+        var diet =  this.dietRadio.value();
+        var era =  this.eraRadio.value();
+     
+        if ((animal.era === era) && (animal.diet === diet) && (animal.mammal === mammal)) {
+            this.hide();
+            choosecreatureform = new chooseCreatureForm();
+           
+            choosecreatureform.display();
+        }else{
+            infoForm.display();
+        }
             
     });
 

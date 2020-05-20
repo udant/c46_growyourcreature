@@ -14,7 +14,40 @@ class AdminForm extends Creatures{
         this.mammalbox = createInput('mammal yes/no');
         this.sudmitbutton = createButton('add');
     }
+    hide(){
+        this.animaltype.visible=false;
+        this.namebox.visible=false;
+        this.areabox.visible=false;
+        this.erabox.visible=false;
+        this.dietbox.visible=false;
+        this.foodbox.visible=false;
+        this.weightbox.visible=false;
+        this.habitatbox.visible=false;
+        this.habitat1box.visible=false;
+        this.heightbox.visible=false;
+        this.mammalbox.visible=false;
+        this.sudmitbutton.visible=false;
+
+    }
+    show(){
+     
+            this.animaltype.visible=true;
+            this.namebox.visible=true;
+            this.areabox.visible=true;
+            this.erabox.visible=true;
+            this.dietbox.visible=true;
+            this.foodbox.visible=true;
+            this.weightbox.visible=true;
+            this.habitatbox.visible=true;
+            this.habitat1box.visible=true;
+            this.heightbox.visible=true;
+            this.mammalbox.visible=true;
+            this.sudmitbutton.visible=true;
+    
+     
+    }
     display(){
+        this.show();
         this.animaltype.position(displayWidth/2 - 50,50);
         this.namebox.position(displayWidth/2 - 50, 80);
         this.areabox.position(displayWidth/2 - 50, 110);

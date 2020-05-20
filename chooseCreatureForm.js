@@ -20,49 +20,44 @@ class chooseCreatureForm {
       this.choose.position(displayWidth/2 - 50, 100);
       this.dinobutton.position(displayWidth/2 - 50, 400);
       this.iceagebutton.position(displayWidth/2 + 50, 400);
-      
+      this.title.style("background-color","red");
+      this.choose.style("background-color","yellow");
       //Q4: How to change  size of button?
       
-      this.iceagebutton.mousePressed(()=>{
-        this.dinobutton.hide();
+    this.iceagebutton.mousePressed ( () =>{
+     // mammal_sprite.visible = true;
         console.log("iceagebutton pressed");  
         Creatures.readdatalist("iceage");
         console.log("creaturecountdb "+creaturecountdb);
-        console.log("creaturelistdb "+creaturelistdb);
+      //  console.log("creaturelistdb "+creaturelistdb);
         //this.hide();
         var count = Object.keys(creaturelistdb);
         for( var i=0;i<count.length;i++){
             var k= count[i];
-            var name_1 =   creaturelistdb[k].name;     
-            var buttonname= "iceagebutton"+i;
-            //buttonname = createButton(name_1);
-           // buttonname.position(displayWidth/2 - 50 , 400 + 30*i);
-            console.log("Record:" + name_1);
-            console.log(creaturelistdb[k].name,creaturelistdb[k].area,creaturelistdb[k].diet,
-              creaturelistdb[k].era,creaturelistdb[k].food,creaturelistdb[k].habitat,creaturelistdb[k].habitat1,
-              creaturelistdb[k].height,creaturelistdb[k].weight,creaturelistdb[k].mammal);
+            var name_1 =   creaturelistdb[k].name;  
               this.dinobutton.hide();
+              AfterChooseCreatureForm=true;
+              var buttonname = name_1;
+               //creature_button[i] = createButton(buttonname); //Button is created 
+               creature_button[i] = createImg("images/baby_"+name_1+".jpg");
+               creature_button[i].position(displayWidth/2 - 50 , 400 + 30*i+(i*25));//button's position is set
+               console.log("buttonname displayed");
               this.choose.hide();
               this.title.hide();
               animal = new Creatures( creaturelistdb[k].name,creaturelistdb[k].area,creaturelistdb[k].diet,
               creaturelistdb[k].era,creaturelistdb[k].food,creaturelistdb[k].habitat,creaturelistdb[k].habitat1,
               creaturelistdb[k].height,creaturelistdb[k].weight,creaturelistdb[k].mammal);
-              infoForm = new  InfoForm();
-              infoForm.display();
               this.iceagebutton.hide();
-              this.choose.hide();
-              this.title.hide();
-            console.log("Record:" + name_1);
-            showisland = true;
-
-        }
-        //this.hide();
-      });
-     
-     //Either dino button or iceage button is pressed from screen : 
-     //below code runs when dinobutton is clicked twice
+              snowIsland.visible=true;
+              riverIsland.visible=true; 
+              forestIsland.visible=true; 
+              meat.visible=true; 
+              fish.visible=true; 
+              plants.visible=true;
+              }
+            });
       this.dinobutton.mousePressed(()=>{
-        showisland=true;
+        //showisland=true;
         this.iceagebutton.hide();
        // console.log("dinobutton pressed");  
         Creatures.readdatalist("dino"); //to get the list of creatures from database which starts with name 'dino'
@@ -74,59 +69,31 @@ class chooseCreatureForm {
         for( var i=0;i<count.length;i++){ 
             var k= count[i];
             var name_1 =   creaturelistdb[k].name;  
-            //var name_1 =   creaturelistdb[k].name;     
-            var buttonname = "dinobutton"+i;  //For each dino, button name is created
-          //  button.setAttribute("name","dinobutton"+i);
-            ////button.setAttribute("value","dinobutton"+i);
-           //// button.setAttribute("onclick","dinobutton"+i);
-             
-            buttonname = createButton(name_1); //Button is created 
-            buttonname = createImg("images/baby_"+name_1+".jpg");
-            buttonname.position(displayWidth/2 - 50 , 400 + 30*i+(i*25));//button's position is set
-            //buttonname.src = "images/iceage_button.jpg";
+           
+           AfterChooseCreatureForm=true;
+           var buttonname = name_1;
+            //creature_button[i] = createButton(buttonname); //Button is created 
+            creature_button[i] = createImg("images/baby_"+name_1+".jpg");
+            creature_button[i].position(displayWidth/2 - 50 , 400 + 30*i+(i*25));//button's position is set
             console.log("buttonname displayed");
   
             this.choose.hide(); 
-            console.log("buttonname "+buttonname);
+            
               this.title.hide();
-              console.log("Record:" + name_1);
-              console.log(creaturelistdb[k].name,creaturelistdb[k].area,creaturelistdb[k].diet,
-                creaturelistdb[k].era,creaturelistdb[k].food,creaturelistdb[k].habitat,creaturelistdb[k].habitat1,
-                creaturelistdb[k].height,creaturelistdb[k].weight,creaturelistdb[k].mammal);
                 this.dinobutton.hide();
-                
-                animal = new Creatures( creaturelistdb[k].name,creaturelistdb[k].area,creaturelistdb[k].diet,
-                creaturelistdb[k].era,creaturelistdb[k].food,creaturelistdb[k].habitat,creaturelistdb[k].habitat1,
-                creaturelistdb[k].height,creaturelistdb[k].weight,creaturelistdb[k].mammal);
-                infoForm = new  InfoForm();
-                infoForm.display();
-                
-              /*  buttonname = document.getElementsByClassName("button");
-
-                for (var b = 0; b < buttonname.length; b++) {
-                  buttonname[b].src = "images/iceagebutton.jpg";
-                  buttonname.display(); 
-                  console.log("buttonname displayed");
-               }*/
-               
-                // bu
-              /*this.buttonname.mousePressed(()=>{
-              //animal = new Creatures("Woolly_Mammoth","creature area","herbivore","iceage","plants","snow","land","creature height","creature weight","yes");
-              console.log("Record details" + creaturelistdb[k].area + " "+ creaturelistdb[k].habitat );
-                //Add form 
-                 showisland = true;
-           });*/
-           showisland = true;
+                snowIsland.visible=true;
+                riverIsland.visible=true; 
+                forestIsland.visible=true; 
+                meat.visible=true; 
+                fish.visible=true; 
+                plants.visible=true;
 
         }
+
+        
       });
-     /* button.mousePressed(()=>{
-              
-        console.log("button dinobutton+i.onclick ");
-           
-      }); */ 
+      
     }
    
-    
   }
   

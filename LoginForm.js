@@ -15,6 +15,7 @@ class LoginForm {
 
   display(){
     this.title.html("Grow Your Creature");
+    this.title.style("background-color","blue");
     this.title.position(displayWidth/2 - 50, 0);
     this.input1.position(displayWidth/2 - 40 , displayHeight/2 - 80);
     this.input2.position(displayWidth/2 - 40 , displayHeight/2 - 50);
@@ -24,7 +25,7 @@ class LoginForm {
       var pwd=this.input2.value();
       //Q3: how to comapre with null inputs, below condition not workinng. 
       if(username != null || pwd != null){
-              console.log("not null value"+alluserinfo);
+            //  console.log("not null value"+alluserinfo);
               
               if(alluserinfo != undefined){
                       var found = false;
@@ -36,8 +37,9 @@ class LoginForm {
                           var name_db =   alluserinfo[k].name;
                           var password_db  =   alluserinfo[k].password;
                           if (username === "admin" && pwd === "admin123" ){
-                            console.log("open admin page ");
-                            adminform.display();
+                           // console.log("open admin page ");
+                           adminform = new AdminForm();
+                           adminform.display();
                             //this should be hidden.
                            this.hide();
                             break;
@@ -51,19 +53,21 @@ class LoginForm {
                       }
                     
                     if(found === true){
-                          console.log("go to island  screen ");
-                          showisland=true;
                           this.hide();
+                          loginform.hide();
+                          choosecreatureform = new chooseCreatureForm();
+                          choosecreatureform.display();
+                    }else if(relogin === true){
+                          loginform.display();
                     }else if (found === false && adddb === true) {
                           creatures.updateUser(count.length,username,pwd);
-                          console.log("dbadduser completed");
+                         // console.log("dbadduser completed");
                           loginform.hide();
-                          
                           choosecreatureform = new chooseCreatureForm();
                           choosecreatureform.display();
                           //Q7: Database is not reading any values & storing in variables.
                     }else if (found === false && relogin === true) {
-                      console.log("throw to login page");
+                  //    console.log("throw to login page");
                           loginform.display();
                     } 
                     
@@ -71,7 +75,7 @@ class LoginForm {
 
       }
 
-      console.log("username"+username+"Password"+pwd+'::');
+     // console.log("username"+username+"Password"+pwd+'::');
     });
      
   } 
