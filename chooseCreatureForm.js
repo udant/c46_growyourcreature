@@ -16,10 +16,10 @@ class chooseCreatureForm {
       //Q2: How to add image to buttons ?
       this.title.html("Grow Your Creature");
       this.choose.html("Choose Your Creature");
-      this.title.position(displayWidth/2 - 50, 0);
-      this.choose.position(displayWidth/2 - 50, 100);
-      this.dinobutton.position(displayWidth/2 - 50, 400);
-      this.iceagebutton.position(displayWidth/2 + 50, 400);
+      this.title.position(windowWidth/2 - 50, 0);
+      this.choose.position(windowWidth/2 - 50, 100);
+      this.dinobutton.position(windowWidth/2 - 50, 400);
+      this.iceagebutton.position(windowWidth/2 + 50, 400);
       this.title.style("background-color","red");
       this.choose.style("background-color","yellow");
       //Q4: How to change  size of button?
@@ -40,7 +40,7 @@ class chooseCreatureForm {
               var buttonname = name_1;
                //creature_button[i] = createButton(buttonname); //Button is created 
                creature_button[i] = createImg("images/baby_"+name_1+".jpg");
-               creature_button[i].position(displayWidth/2 - 50 , 400 + 30*i+(i*25));//button's position is set
+               creature_button[i].position(windowWidth/2 - 50 , 400 + 30*i+(i*25));//button's position is set
                console.log("buttonname displayed");
               this.choose.hide();
               this.title.hide();
@@ -74,7 +74,7 @@ class chooseCreatureForm {
            var buttonname = name_1;
             //creature_button[i] = createButton(buttonname); //Button is created 
             creature_button[i] = createImg("images/baby_"+name_1+".jpg");
-            creature_button[i].position(displayWidth/2 - 50 , 400 + 30*i+(i*25));//button's position is set
+            creature_button[i].position(windowWidth/2 - 50 , 400 + 30*i+(i*25));//button's position is set
             console.log("buttonname displayed");
   
             this.choose.hide(); 

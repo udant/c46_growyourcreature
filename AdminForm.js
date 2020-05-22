@@ -48,18 +48,18 @@ class AdminForm extends Creatures{
     }
     display(){
         this.show();
-        this.animaltype.position(displayWidth/2 - 50,50);
-        this.namebox.position(displayWidth/2 - 50, 80);
-        this.areabox.position(displayWidth/2 - 50, 110);
-        this.erabox.position(displayWidth/2 - 50, 140);
-        this.dietbox.position(displayWidth/2 - 50, 170);
-        this.foodbox.position(displayWidth/2 - 50, 200);
-        this.weightbox.position(displayWidth/2 - 50, 230);
-        this.habitatbox.position(displayWidth/2 - 50, 260);
-        this.habitat1box.position(displayWidth/2 - 50, 290);
-        this.heightbox.position(displayWidth/2 - 50, 320);
-        this.mammalbox.position(displayWidth/2 - 50, 350);
-        this.sudmitbutton.position(displayWidth/2 - 50, 380);
+        this.animaltype.position(windowWidth/2 - 50,50);
+        this.namebox.position(windowWidth/2 - 50, 80);
+        this.areabox.position(windowWidth/2 - 50, 110);
+        this.erabox.position(windowWidth/2 - 50, 140);
+        this.dietbox.position(windowWidth/2 - 50, 170);
+        this.foodbox.position(windowWidth/2 - 50, 200);
+        this.weightbox.position(windowWidth/2 - 50, 230);
+        this.habitatbox.position(windowWidth/2 - 50, 260);
+        this.habitat1box.position(windowWidth/2 - 50, 290);
+        this.heightbox.position(windowWidth/2 - 50, 320);
+        this.mammalbox.position(windowWidth/2 - 50, 350);
+        this.sudmitbutton.position(windowWidth/2 - 50, 380);
         this.sudmitbutton.mousePressed(()=>{
            
             var animaltype=this.animaltype.value();

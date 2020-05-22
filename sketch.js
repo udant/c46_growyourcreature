@@ -39,7 +39,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(displayWidth-50,displayHeight-150);
+  createCanvas(windowWidth-50,windowHeight-100);
   database = firebase.database();
   creatures = new Creatures();
   loginform = new LoginForm();

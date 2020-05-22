@@ -46,19 +46,19 @@ class Quiz {
         this.dietRadio.visible = true;
         this.dietText.visible = true;
         this.eraRadio.visible = true;
-        this.dietRadio.position(displayWidth/2 - 50, 80);
-        this.eraRadio.position(displayWidth/2 - 50, 100);
-        this.mammalRadio.position(displayWidth/2 - 50, 120);
+        this.dietRadio.position(windowWidth/2 - 50, 80);
+        this.eraRadio.position(windowWidth/2 - 50, 100);
+        this.mammalRadio.position(windowWidth/2 - 50, 120);
         this.dietRadio.checked=false;
         this.mammalRadio.checked=false;
         this.eraRadio.checked=false;
         console.log("mammal Val:"+ this.mammalRadio.value());
         console.log("Era Val:"+ this.eraRadio.value());
         console.log("diet Val:"+ this.dietRadio.value());
-        this.dietText.position(displayWidth/2 - 200, 63);
-        this.eraText.position(displayWidth/2 - 200, 83);
-        this.mammalText.position(displayWidth/2 - 200, 103);
-        this.sudmitbutton.position(displayWidth/2 - 50, 380);
+        this.dietText.position(windowWidth/2 - 200, 63);
+        this.eraText.position(windowWidth/2 - 200, 83);
+        this.mammalText.position(windowWidth/2 - 200, 103);
+        this.sudmitbutton.position(windowWidth/2 - 50, 380);
 
 
 
@@ -73,14 +73,14 @@ class Quiz {
             this.hide();
             choosecreatureform = new chooseCreatureForm();
             P1 = createP("Correct !!!!!!!!");
-            P1.position((displayWidth-50)/2,(displayHeight-150)/2);
+            P1.position((windowWidth-50)/2,(windowHeight-150)/2);
            console.log("Correct !!!!!!!!");
             choosecreatureform.display();
           
         }else{
             infoForm.display();
           P2 = createP("Try Again !!!!!!!!");
-          P2.position((displayWidth-50)/2,(displayHeight-150)/2);
+          P2.position((windowWidth-50)/2,(windowHeight-150)/2);
             console.log("Try Again !!!!!!!!");
             quiz.display();
         }

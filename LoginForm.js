@@ -16,10 +16,10 @@ class LoginForm {
   display(){
     this.title.html("Grow Your Creature");
     this.title.style("background-color","blue");
-    this.title.position(displayWidth/2 - 50, 0);
-    this.input1.position(displayWidth/2 - 40 , displayHeight/2 - 80);
-    this.input2.position(displayWidth/2 - 40 , displayHeight/2 - 50);
-    this.button.position(displayWidth/2 + 30, displayHeight/2);
+    this.title.position(windowWidth/2 - 50, 0);
+    this.input1.position(windowWidth/2 - 40 , windowHeight/2 - 80);
+    this.input2.position(windowWidth/2 - 40 , windowHeight/2 - 50);
+    this.button.position(windowWidth/2 + 30, windowHeight/2);
      this.button.mousePressed(()=>{
       var username=this.input1.value();
       var pwd=this.input2.value();
