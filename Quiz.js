@@ -63,7 +63,8 @@ class Quiz {
 
 
         this.sudmitbutton.mousePressed(()=>{
-
+            var P1;
+            var P2;
         var mammal =  this.mammalRadio.value();
         var diet =  this.dietRadio.value();
         var era =  this.eraRadio.value();
@@ -71,10 +72,17 @@ class Quiz {
         if ((animal.era === era) && (animal.diet === diet) && (animal.mammal === mammal)) {
             this.hide();
             choosecreatureform = new chooseCreatureForm();
-           
+            P1 = createP("Correct !!!!!!!!");
+            P1.position((displayWidth-50)/2,(displayHeight-150)/2);
+           console.log("Correct !!!!!!!!");
             choosecreatureform.display();
+          
         }else{
             infoForm.display();
+          P2 = createP("Try Again !!!!!!!!");
+          P2.position((displayWidth-50)/2,(displayHeight-150)/2);
+            console.log("Try Again !!!!!!!!");
+            quiz.display();
         }
             
     });
